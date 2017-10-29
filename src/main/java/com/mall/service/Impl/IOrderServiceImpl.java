@@ -520,7 +520,7 @@ private ShippingMapper shippingMapper;
         PageHelper.startPage(pageNum,pageSize);
         List<Order> orderList=orderMapper.selectAllOrder();
         List<OrderVo> orderVoList=this.assembleOrderVoList(orderList,null);
-        PageInfo pageResult=new PageInfo();
+        PageInfo pageResult=new PageInfo(orderList);
         pageResult.setList(orderVoList);
         return ServerResponse.createBySuccessData(pageResult);
     }
